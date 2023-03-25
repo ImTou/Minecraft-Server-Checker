@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Whois Lookup</title>
+  </head>
+  <body>
+    <h1>Whois Lookup</h1>
+    <form onsubmit="event.preventDefault(); lookup();">
+      <label for="query">Domain/IP:</label>
+      <input type="text" id="query" name="query" placeholder="example.com or 8.8.8.8">
+      <button type="submit">Lookup</button>
+    </form>
+    <div id="loading" style="display: none;">
+      <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="loading">
+    </div>
+    <div id="result"></div>
+    <script>
+      function lookup() {
+        var query = document.getElementById("query").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://cors-anywhere.herokuapp.com/https://whois.arin.net/rest/ip/" + query + ".json", true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            document.getElementById("loading").style.display = "none";
+            if (xhr.status === 200) {
+              var response = JSON.parse(xhr.responseText);
+              var netName = response.net.name.$;
+              var orgName = response.net.orgRef.name.$;
+              var orgHandle = response.net.orgRef["@handle"];
+              var address = response.net.address.$;
+              var city = response.net.city.$;
+              var state = response.net.state.$;
+              var zip = response.net.postalCode.$;
+              var country = response.net.country.$;
+              var result = "<h2>Results for " + query + ":</h2><ul>";
+              if (netName) {
+                result += "<li><strong>Network Name:</strong> " + netName + "</li>";
+              }
+              if (orgName) {
+                result += "<li><strong>Organization Name:</strong> " + orgName + " (" + orgHandle + ")</li>";
+              }
+              if (address || city || state || zip || country) {
+                result += "<li><strong>Location:</strong> " + address + ", " + city + ", " + state + " " + zip + ", " + country + "</li>";
+              }
+              result += "</ul>";
+              document.getElementById("result").innerHTML = result;
+            } else {
+              document.getElementById("result").innerHTML = "<p><strong>Error:</strong> Unable to find information for " + query + ".</p>";
+            }
+          }
+        };
+        xhr.onerror = function() {
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("result").innerHTML = "<p><strong>Error:</strong> Unable to connect to the Whois server.</p>";
+        };
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("loading").style.display = "block";
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>
