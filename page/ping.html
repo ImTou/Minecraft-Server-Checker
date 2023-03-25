@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ping Check Tool</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Ping Tool</title>
   </head>
   <body>
-    <h1>Ping Check Tool</h1>
-    <p>Select a country to check your ping:</p>
-    <select id="country">
-      <option value="us">United States</option>
-      <option value="uk">United Kingdom</option>
-      <option value="fr">France</option>
-      <option value="jp">Japan</option>
-    </select>
-    <button id="check-ping">Check Ping</button>
-    <div id="ping-result"></div>
-    <script src="/js/ping.js"></script>
+    <h1>Ping Tool</h1>
+    <p>Welcome to our Ping Tool! This tool allows you to check the latency, or ping, between your computer and a server.</p>
+    <form>
+      <label for="server">Server:</label>
+      <input type="text" id="server" name="server" required>
+      <button type="button" onclick="ping()">Ping</button>
+    </form>
+    <p id="result"></p>
+    <script>
+      function ping() {
+        var server = document.getElementById("server").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://cors-anywhere.herokuapp.com/http://" + server, true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              var time = xhr.getResponseHeader("X-Response-Time");
+              document.getElementById("result").innerHTML = "Ping to " + server + " took " + time + "ms.";
+            } else {
+              document.getElementById("result").innerHTML = "Ping failed. Please check the server address and try again.";
+            }
+          }
+        };
+        xhr.send();
+      }
+    </script>
   </body>
 </html>
