@@ -16,49 +16,71 @@
     </div>
     <div id="result"></div>
     <script>
-      function lookup() {
-        var query = document.getElementById("query").value;
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://cors-anywhere.herokuapp.com/https://whois.arin.net/rest/ip/" + query + ".json", true);
-        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState === 4) {
-            document.getElementById("loading").style.display = "none";
-            if (xhr.status === 200) {
-              var response = JSON.parse(xhr.responseText);
-              var netName = response.net.name.$;
-              var orgName = response.net.orgRef.name.$;
-              var orgHandle = response.net.orgRef["@handle"];
-              var address = response.net.address.$;
-              var city = response.net.city.$;
-              var state = response.net.state.$;
-              var zip = response.net.postalCode.$;
-              var country = response.net.country.$;
-              var result = "<h2>Results for " + query + ":</h2><ul>";
-              if (netName) {
-                result += "<li><strong>Network Name:</strong> " + netName + "</li>";
-              }
-              if (orgName) {
-                result += "<li><strong>Organization Name:</strong> " + orgName + " (" + orgHandle + ")</li>";
-              }
-              if (address || city || state || zip || country) {
-                result += "<li><strong>Location:</strong> " + address + ", " + city + ", " + state + " " + zip + ", " + country + "</li>";
-              }
-              result += "</ul>";
-              document.getElementById("result").innerHTML = result;
-            } else {
-              document.getElementById("result").innerHTML = "<p><strong>Error:</strong> Unable to find information for " + query + ".</p>";
-            }
-          }
-        };
-        xhr.onerror = function() {
-          document.getElementById("loading").style.display = "none";
-          document.getElementById("result").innerHTML = "<p><strong>Error:</strong> Unable to connect to the Whois server.</p>";
-        };
-        document.getElementById("result").innerHTML = "";
-        document.getElementById("loading").style.display = "block";
-        xhr.send();
+      function whoisLookup() {
+  const query = document.getElementById("whois-input").value.trim();
+  const url = `https://ipwhois.io/json/${query}?apiKey=${WHOIS_API_KEY}`;
+  
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      if (data.success) {
+        displayWhoisResults(data);
+      } else {
+        displayWhoisError(data.message);
+      }
+    })
+    .catch(error => {
+      console.error("There was a problem with the Whois request:", error);
+      displayWhoisError("There was a problem with the Whois request. Please try again later.");
+    });
+}
+      function displayWhoisResults(data) {
+  const resultsContainer = document.getElementById("whois-results");
+  resultsContainer.innerHTML = "";
+  
+  const domainContainer = document.createElement("div");
+  domainContainer.innerHTML = `<h3>${data.ip}</h3>`;
+  resultsContainer.appendChild(domainContainer);
+  
+  const table = document.createElement("table");
+  const tbody = document.createElement("tbody");
+  
+  const fields = [
+    { label: "Organization", value: data.organization },
+    { label: "ISP", value: data.isp },
+    { label: "ASN", value: data.asn },
+    { label: "Country", value: data.country },
+    { label: "Region", value: data.region },
+    { label: "City", value: data.city },
+    { label: "Latitude", value: data.latitude },
+    { label: "Longitude", value: data.longitude },
+    { label: "Timezone", value: data.timezone },
+    { label: "Postal Code", value: data.postal },
+    { label: "Currency", value: data.currency },
+  ];
+  
+  fields.forEach(field => {
+    if (field.value) {
+      const row = document.createElement("tr");
+      const labelCell = document.createElement("td");
+      labelCell.textContent = field.label;
+      const valueCell = document.createElement("td");
+      valueCell.textContent = field.value;
+      row.appendChild(labelCell);
+      row.appendChild(valueCell);
+      tbody.appendChild(row);
+    }
+  });
+  
+  table.appendChild(tbody);
+  resultsContainer.appendChild(table);
+}
     </script>
   </body>
 </html>
