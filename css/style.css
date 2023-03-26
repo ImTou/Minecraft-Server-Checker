@@ -348,93 +348,53 @@ nav ul li a:hover{
     color: #00ff08;
 }
 
-.cta{
-  background: hsl(var(--hue), 98%, 80%);
-	border: none;
-	border-radius: 7px;
-	cursor: pointer;
-	color: black;
-	font: 600 1.05rem/1 "Nunito", sans-serif;
-	letter-spacing: .05em;
-	overflow: hidden;
-	padding: 1.15em 3.5em;
-	min-height: 3.3em;
-	position: relative;
-	text-transform: lowercase;
-
-	&--yellow {
-		--hue: 46;
-	}
-
-	&--green {
-		--hue: 163;
-	}
-
-	&--purple {
-		--hue: 244;
-	}
-
-	&--red {
-		--hue: 0;
-	}
-
-	&--blue {
-		--hue: 210;
-	}
-
-	&:active,
-	&:focus {
-		outline: 3px solid hsl(calc(var(--hue) + #{$hueStep}), 98%, 80%);
-	}
-
-	& + & {
-		margin-top: 2.5em;
-	}
-
-	&__txt {
-		position: relative;
-		z-index: 2;
-	}
-
-	&__bg {
-		background: hsl(var(--hueBg), 98%, 80%);
-		border-radius: 50%;
-		display: block;
-		height: 0;
-		left: 50%;
-		margin: -50% 0 0 -50%;
-		padding-top: 100%;
-		position: absolute;
-		top: 50%;
-		width: 100%;
-		transform: scale(0);
-		transform-origin: 50% 50%;
-		transition: transform 0.175s cubic-bezier(0.5, 1, 0.89, 1); 
-		z-index: 1;
-
-		@for $i from 1 through 4 { 
-			&:nth-of-type(#{$i}) {
-				--hueBg: calc(var(--hue) - #{$i * $hueStep});
-				transition-delay: $delayStep / 2 * (4 - $i);
-			}
-		}
-
-		.btn:hover &,
-		.btn:focus &,
-		.btn:active & {
-			transform: scale(1.5);
-			transition: transform 0.35s cubic-bezier(0.11, 0, 0.5, 0);
-
-			@for $i from 1 through 4 {
-				&:nth-of-type(#{$i}) {
-					transition-delay: $delayStep * $i;
-				}
-			}
-		}
-	}
+.cta {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
-.cta:hover{
-    background-color: #00ff08;
-    color: #FFF;
+.cta:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.cta:hover {
+  background-color: #2c974b;
+}
+
+.cta:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.cta:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.cta:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
