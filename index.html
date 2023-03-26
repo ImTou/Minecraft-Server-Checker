@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
+    <script>
+    // Define the function to check if the user is a bot
+    function isBot() {
+        // Check if the user agent string contains common bot keywords
+        return /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent);
+    }
+    
+    // If the user is a bot, redirect to an error page
+    if (isBot()) {
+        window.location.href = "error.html";
+    }
+</script>
+
   </head>
   <body>    
         <nav>
