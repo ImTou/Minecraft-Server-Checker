@@ -68,3 +68,34 @@ form.addEventListener('submit', async (event) => {
     result.innerHTML = 'There was an error fetching server data. please another server or ip';
   }
 });
+
+function preventBot() {
+  // Check if the form has been submitted too quickly
+  var timeSinceLoad = (new Date().getTime() - performance.timing.navigationStart) / 1000;
+  if (timeSinceLoad < 5) {
+    alert("Please wait a moment before submitting the form.");
+    return false;
+  }
+
+  // Check if the form has been submitted from a hidden field
+  if (document.getElementById("hidden_field") !== null) {
+    alert("The form cannot be submitted from a hidden field.");
+    return false;
+  }
+
+  // Check if the form has been submitted without a referrer
+  if (document.referrer === "") {
+    alert("The form cannot be submitted without a referrer.");
+    return false;
+  }
+
+  // Check if the form has been submitted by a bot using JavaScript
+  if (window.navigator.webdriver || document.documentElement.getAttribute("webdriver") === "true") {
+    alert("The form cannot be submitted by a bot.");
+    return false;
+  }
+
+  return true;
+}
+
+// Add event listener to the form
