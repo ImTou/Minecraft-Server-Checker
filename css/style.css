@@ -187,13 +187,14 @@ a {
   display: inline-block;
   padding: 10px;
   text-decoration: none;
-  color: #333;
+  color: #0099ff;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #f44336;
+  color: #ff6600;
 }
+
 
 
 .footer-basic ul {
