@@ -21,7 +21,7 @@ form.addEventListener('submit', async (event) => {
     }
     const { motd, players, version, software } = data;
     result.innerHTML = `
-      <div class="motd">${motd.html || motd.clean || 'No MOTD'}</div>
+      <div class="motd" data-aos="fade-righ" data-aos-duration="4000">${motd.html || motd.clean || 'No MOTD'}</div>
       <div class="info">Information: ${software} ${version}</div>
       <div class="players"><b>Players online:</b> ${players.online}/${players.max}</div>
       <div class="debug">
