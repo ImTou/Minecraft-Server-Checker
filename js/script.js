@@ -24,8 +24,8 @@ form.addEventListener('submit', async (event) => {
       <div class="motd" data-aos="fade-righ" data-aos-duration="4000">${motd.html || motd.clean || 'No MOTD'}</div>
       <div class="info" data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000">Information: ${software} ${version}</div>
       <div class="players" data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000"><b>Players online:</b> ${players.online}/${players.max}</div>
-      <div class="debug"> data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000"
-  <h2>Debug Information:</h2>
+      <div class="debug">
+  <h2 data-aos="fade-in" data-aos-easing="ease-in-out"  data-aos-duration="4000">Debug Information:</h2>
   <ul>
     <li data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000"><b>Ping:</b></b> ${data.debug.ping}</li>
     <li data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000"><b>Query:</b> ${data.debug.query}</li>
