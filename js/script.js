@@ -22,13 +22,13 @@ form.addEventListener('submit', async (event) => {
     const { motd, players, version, software } = data;
     result.innerHTML = `
       <div class="motd" data-aos="fade-righ" data-aos-duration="4000">${motd.html || motd.clean || 'No MOTD'}</div>
-      <div class="info" data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000">Information: ${software} ${version}</div>
-      <div class="players" data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000"><b>Players online:</b> ${players.online}/${players.max}</div>
+      <div class="info">Information: ${software} ${version}</div>
+      <div class="players"><b>Players online:</b> ${players.online}/${players.max}</div>
       <div class="debug">
-  <h2 data-aos="fade-in" data-aos-easing="ease-in-out"  data-aos-duration="4000">Debug Information:</h2>
+  <h2>Debug Information:</h2>
   <ul>
-    <li data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000"><b>Ping:</b></b> ${data.debug.ping}</li>
-    <li data-aos="zoom-in-left" data-aos-easing="ease-in-out"  data-aos-duration="4000"><b>Query:</b> ${data.debug.query}</li>
+    <li><b>Ping:</b></b> ${data.debug.ping}</li>
+    <li><b>Query:</b> ${data.debug.query}</li>
     <li><b>SRV:</b> ${data.debug.srv}</li>
     <li><b>Query Mismatch:</b> ${data.debug.querymismatch}</li>
     <li><b>IP in SRV:</b> ${data.debug.ipinsrv}</li>
