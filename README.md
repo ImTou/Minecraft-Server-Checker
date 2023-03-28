@@ -1,4 +1,5 @@
-# Minecraft Server Checker Website
+# Minecraft Server Checker Website <img src="https://komarev.com/ghpvc/?username=TheRealTou&color=brightgreen" alt="watching_count" />
+
 This project is a web-based tool for checking the status of Minecraft servers. It allows users to enter the IP address and port of a Minecraft server and get real-time information about its status, including the number of players online and the server's latency. The tool uses the mcstatus API to retrieve this information.
 
 ## Features
