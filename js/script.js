@@ -16,7 +16,7 @@ form.addEventListener('submit', async (event) => {
     const data = await response.json();
     result.classList.remove('loading');
     if (!data.online) {
-      result.innerHTML = 'Server is offline.';
+      result.innerHTML = data-aos="fade-righ" data-aos-duration="4000"'Server is offline.';
       return;
     }
     const { motd, players, version, software } = data;
