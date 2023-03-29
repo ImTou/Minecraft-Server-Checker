@@ -1,16 +1,8 @@
 const form = document.querySelector('form');
 const result = document.querySelector('#result');
 window.addEventListener("beforeunload", function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    var container = document.getElementById("container");
-    var loader = document.getElementById("loader");
-    setTimeout(function () {
-      container.style.display = "block";
-      loader.classList.add("hide");
-      document.body.classList.add("loaded");
-      document.body.classList.remove("loading");
-    }, 2000);
-  });  
+  document.querySelector("#loader").style.display = "block";
+});
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
