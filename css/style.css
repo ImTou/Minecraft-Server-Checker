@@ -135,7 +135,7 @@ footer {
   height: 50px;
   border-radius: 50%;
   border: 5px solid #ccc;
-  border-top-color: #000;
+  border-top-color: #2ea44f;
   animation: spin 1s linear infinite;
 }
 
