@@ -99,6 +99,8 @@ footer {
 }
 
 .footer-content {
+  width: 10px;
+  height: 10px;
   max-width: 600px;
   margin: 0 auto;
 }
