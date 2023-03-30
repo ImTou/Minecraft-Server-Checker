@@ -92,6 +92,9 @@ form {
 
 /* Footer styles */
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-color: #3e8e41;
   color: #333333;
   padding: 10px;
