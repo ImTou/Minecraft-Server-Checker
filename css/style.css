@@ -10,7 +10,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-color: #ffffff;
+  background-color: #000000;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -21,7 +21,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
-  background-color: #ffffff;
+  background-color: #000000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   text-align: center;
@@ -29,16 +29,15 @@ body {
 
 h1 {
   margin-bottom: 20px;
-  color: #000000;
+  color: #FFFFFF;
 }
-
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: ##FFFFFF;
+    background-color: #000000;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
@@ -48,7 +47,7 @@ form {
     margin-bottom: 8px;
     font-size: 18px;
     font-weight: bold;
-    color: #5a5a5a;
+    color: #FFFFFF;
   }
 
   /* Style the input field */
