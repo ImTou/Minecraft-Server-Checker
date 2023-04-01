@@ -68,24 +68,3 @@ form.addEventListener('submit', async (event) => {
     result.innerHTML = 'There was an error fetching server data. please another server or ip';
   }
 });
-
-         // Get the title element
-         const title = document.getElementById("title");
-          
-         // Define the animation function
-         function animateTitle() {
-           // Rotate the title
-           title.style.transform = "rotate(360deg)";
-           
-           // Change the color of the title
-           title.style.color = "#F44336";
-           
-           // Set a timeout to reset the title after 1 second
-           setTimeout(function() {
-             title.style.transform = "rotate(0deg)";
-             title.style.color = "#FFC107";
-           }, 1000);
-         }
-         
-         // Call the animation function every 2 seconds
-         setInterval(animateTitle, 2000);
