@@ -322,3 +322,8 @@ nav ul li a:hover{
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 
+#title {
+  font-size: 64px;
+  color: #FFC107;
+  text-align: center;
+}
