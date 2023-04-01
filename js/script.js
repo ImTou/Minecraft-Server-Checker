@@ -69,33 +69,23 @@ form.addEventListener('submit', async (event) => {
   }
 });
 
-function preventBot() {
-  // Check if the form has been submitted too quickly
-  var timeSinceLoad = (new Date().getTime() - performance.timing.navigationStart) / 1000;
-  if (timeSinceLoad < 5) {
-    alert("Please wait a moment before submitting the form.");
-    return false;
-  }
-
-  // Check if the form has been submitted from a hidden field
-  if (document.getElementById("hidden_field") !== null) {
-    alert("The form cannot be submitted from a hidden field.");
-    return false;
-  }
-
-  // Check if the form has been submitted without a referrer
-  if (document.referrer === "") {
-    alert("The form cannot be submitted without a referrer.");
-    return false;
-  }
-
-  // Check if the form has been submitted by a bot using JavaScript
-  if (window.navigator.webdriver || document.documentElement.getAttribute("webdriver") === "true") {
-    alert("The form cannot be submitted by a bot.");
-    return false;
-  }
-
-  return true;
-}
-
-// Add event listener to the form
+         // Get the title element
+         const title = document.getElementById("title");
+          
+         // Define the animation function
+         function animateTitle() {
+           // Rotate the title
+           title.style.transform = "rotate(360deg)";
+           
+           // Change the color of the title
+           title.style.color = "#F44336";
+           
+           // Set a timeout to reset the title after 1 second
+           setTimeout(function() {
+             title.style.transform = "rotate(0deg)";
+             title.style.color = "#FFC107";
+           }, 1000);
+         }
+         
+         // Call the animation function every 2 seconds
+         setInterval(animateTitle, 2000);
