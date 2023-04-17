@@ -327,3 +327,11 @@ nav ul li a:hover{
   color: #FFC107;
   text-align: center;
 }
+
+.footer1 {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #5a5a5a;
+  }
