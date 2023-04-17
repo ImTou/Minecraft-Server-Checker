@@ -68,3 +68,20 @@ form.addEventListener('submit', async (event) => {
     result.innerHTML = 'There was an error fetching server data. please another server or ip';
   }
 });
+
+const box = document.querySelector('.footer1');
+const textToType = 'Made With 💖 By Tou';
+const typingSpeed = 70;
+const typingDelay = 400;
+let charIndex = 0;
+
+box.textContent = '';
+setTimeout(() => {
+  const intervalId = setInterval(() => {
+    box.textContent += textToType[charIndex];
+    charIndex++;
+    if (charIndex === textToType.length) {
+      clearInterval(intervalId);
+    }
+  }, typingSpeed);
+}, typingDelay);
