@@ -90,24 +90,6 @@ form {
   font-weight: bold;
 }
 
-/* Footer styles */
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #3e8e41;
-  color: #333333;
-  padding: 10px;
-  text-align: center;
-}
-
-.footer-content {
-  width: 10px;
-  height: 10px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 #result .debug {
   background-color: #f0f0f0;
   border-radius: 5px;
@@ -199,29 +181,6 @@ a {
 a:hover {
   color: #ff6600;
 }
-
-
-
-footer {
-  background-color: #f8f8f8;
-  color: #333;
-  text-align: center;
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
-
-footer p:first-child {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
