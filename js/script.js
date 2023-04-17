@@ -71,8 +71,8 @@ form.addEventListener('submit', async (event) => {
 
 const box = document.querySelector('.footer1');
 const textToType = 'Made With 💖 By Tou';
-const typingSpeed = 70;
-const typingDelay = 400;
+const typingSpeed = 100;
+const typingDelay = 500;
 let charIndex = 0;
 
 box.textContent = '';
