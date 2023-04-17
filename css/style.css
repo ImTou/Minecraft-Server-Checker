@@ -195,7 +195,7 @@ img {
 
 #loader {
   border: 14px solid #f3f3f3;
-  border-top: 14px solid #2ea44f;
+  border-top: 14px solid #000000;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -223,7 +223,7 @@ a {
 }
 
 a:hover {
-  color: #000000;
+  color: #808080;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
