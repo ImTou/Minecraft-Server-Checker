@@ -223,7 +223,7 @@ a {
 }
 
 a:hover {
-  color: #ff6600;
+  color: #000000;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
@@ -268,10 +268,6 @@ nav ul li a{
     display: block;
     padding: 10px 20px;
     border-radius: 1px;
-}
-
-nav ul li a:hover{
-    color: #00ff08;
 }
 
 .cta {
