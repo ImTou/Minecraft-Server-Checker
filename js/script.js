@@ -65,7 +65,7 @@ form.addEventListener('submit', async (event) => {
     `;
   } catch (error) {
     console.error('Error:', error);
-    result.innerHTML = 'There was an error fetching server data. please another server or ip';
+    result.innerHTML = 'There was an api server error. Please try another Domain or IP.';
   }
 });
 
