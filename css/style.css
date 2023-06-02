@@ -9,7 +9,7 @@ body {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
-  background: #D0D0D0;
+  background: #EBEBEB;
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
